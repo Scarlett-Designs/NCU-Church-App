@@ -25,9 +25,11 @@ class _VideosState extends State<Videos> {
   _initChannel() async {
     Channel channel = await APIService.instance
         .fetchChannel(channelId: 'UCaAlpTlb1Qk-S-UVGKtijKg');
-    setState(() {
-      _channel = channel;
-    });
+    if(this.mounted) {
+      setState(() {
+        _channel = channel;
+      });
+    }
   }
 
   _buildVideo(Video video) {
@@ -58,10 +60,12 @@ class _VideosState extends State<Videos> {
     List<Video> moreVideos = await APIService.instance
         .fetchVideosFromPlaylist(playlistId: _channel.uploadPlaylistId);
     List<Video> allVideos = _channel.videos..addAll(moreVideos);
-    setState(() {
-      _channel.videos = allVideos;
-    });
-    _isLoading = false;
+    if(this.mounted) {
+      setState(() {
+        _channel.videos = allVideos;
+      });
+      _isLoading = false;
+    }
   }
 
   @override
@@ -75,33 +79,33 @@ class _VideosState extends State<Videos> {
     return Container(
       child: _channel != null
           ? NotificationListener<ScrollNotification>(
-              onNotification: (ScrollNotification scrollDetails) {
-                if (!_isLoading &&
-                    _channel.videos.length != int.parse(_channel.videoCount) &&
-                    scrollDetails.metrics.pixels ==
-                        scrollDetails.metrics.maxScrollExtent) {
-                  _loadMoreVideos();
-                }
-                return false;
-              },
-              child: ListView.builder(
-                itemCount: 1 + _channel.videos.length,
-                itemBuilder: (BuildContext context, int index) {
-                  if (index == 0) {
-                    return VideosPageBackground(screenHeight: MediaQuery.of(context).size.height, channel: _channel,);
-                  }
-                  Video video = _channel.videos[index - 1];
-                  return _buildVideo(video);
-                },
-              ),
-            )
+        onNotification: (ScrollNotification scrollDetails) {
+          if (!_isLoading &&
+              _channel.videos.length != int.parse(_channel.videoCount) &&
+              scrollDetails.metrics.pixels ==
+                  scrollDetails.metrics.maxScrollExtent) {
+            _loadMoreVideos();
+          }
+          return false;
+        },
+        child: ListView.builder(
+          itemCount: 1 + _channel.videos.length,
+          itemBuilder: (BuildContext context, int index) {
+            if (index == 0) {
+              return VideosPageBackground(screenHeight: MediaQuery.of(context).size.height, channel: _channel,);
+            }
+            Video video = _channel.videos[index - 1];
+            return _buildVideo(video);
+          },
+        ),
+      )
           : Center(
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(
-                  Theme.of(context).primaryColor, // Red
-                ),
-              ),
-            ),
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation<Color>(
+            Theme.of(context).primaryColor, // Red
+          ),
+        ),
+      ),
     );
   }
 }

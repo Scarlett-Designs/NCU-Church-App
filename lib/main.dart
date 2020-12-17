@@ -44,6 +44,7 @@ class _MyChurchState extends State<MyChurch> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'MyChurchApp',
         theme: ThemeData(
           primarySwatch: Colors.blue,
