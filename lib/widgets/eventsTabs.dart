@@ -35,7 +35,7 @@ class _EventsTabsState extends State<EventsTabs> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 8,),
+                SizedBox(height: screenHeight *0.01,),
                 Center(
                   child: Container(
                     color: Color.fromARGB(150,244,196,48),
@@ -64,7 +64,7 @@ class _EventsTabsState extends State<EventsTabs> {
                     ),
                   ),
                 ),
-                SizedBox(height: 15,),
+                SizedBox(height: screenHeight *0.02,),
                 Container(
                   height: screenHeight *0.55,
                   child: ListView.builder(
@@ -108,7 +108,7 @@ class _EventsTabsState extends State<EventsTabs> {
                                                       CrossAxisAlignment.stretch,
                                                   children: <Widget>[
                                                     SizedBox(
-                                                      height: 20,
+                                                      height: screenHeight *0.02,
                                                     ),
                                                     Text('\nStatus: $status'),
                                                     Text('Description: $description \n'),
@@ -124,9 +124,7 @@ class _EventsTabsState extends State<EventsTabs> {
                                                 crossAxisAlignment: CrossAxisAlignment.center,
                                                 children: <Widget>[
                                                   Container(
-                                                    width:
-                                                        MediaQuery.of(context).size.width *
-                                                            0.20,
+                                                    width: screenWidth * 0.20,
                                                     child: GFButton(
                                                       color: Colors.red,
                                                       child: new Text(
