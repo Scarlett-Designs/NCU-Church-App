@@ -1,8 +1,9 @@
 import 'package:church/res/globals.dart';
-import 'package:church/routes/redirectCheckout.dart';
 import 'package:church/widgets/sizeconfig.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'package:church/screens/checkOut.dart';
 
 class TitheInputField extends StatefulWidget {
   @override
