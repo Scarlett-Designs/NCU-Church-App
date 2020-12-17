@@ -1,7 +1,14 @@
 # NCU Church App
 
-Workload Distribution
-Daavid inclair: 50%
+## Payment Loading Screen
+[Github Link](https://github.com/xDandreas/paymentpage/blob/main/index.html)
+
+## Workload Distribution
+Daavid Sinclair: 50%
+
 Shanann Thompson: 50%
 
-Youtube Link:
+
+## Demo
+[Youtube Link](https://youtu.be/zpbsdlPHicw)
+
