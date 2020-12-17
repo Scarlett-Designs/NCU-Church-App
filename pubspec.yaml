@@ -67,6 +67,11 @@ flutter:
     - assets/images/eventsBG.jpg
     - assets/images/newsBG.jpg
     - assets/images/videosBG.jpg
+    - assets/images/carousel1.jpg
+    - assets/images/carousel2.jpg
+    - assets/images/carousel3.jpg
+    - assets/images/carousel4.jpg
+    - assets/images/carousel5.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

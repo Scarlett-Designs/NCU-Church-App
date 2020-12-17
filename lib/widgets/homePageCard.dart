@@ -6,7 +6,6 @@ class HomePageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenHeight = MediaQuery.of(context).size.height;
     var urlY ="https://www.youtube.com/channel/UCAkwrMUUkwZ7z5IrxxYptwg";
     var urlF ="https://www.facebook.com/NCUChurch/";
     return Container(
@@ -52,9 +51,34 @@ class HomePageCard extends StatelessWidget {
               ],
             )),
         buttonBar: GFButtonBar(
-          //alignment: MainAxisAlignment.center,
           children: <Widget>[
             GestureDetector(
+              onTap: () =>launch("tel://8769637327"),
+              child: GFAvatar(
+                child: Image(
+                  image: AssetImage("assets/logos/phone.png"),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () async {
+                final Uri params = Uri(
+                  scheme: 'mailto',
+                  path: 'church@ncu.edu.jm',
+                );
+                String  url = params.toString();
+                if (await canLaunch(url)) {
+                  await launch(url);
+                } else {
+                  print( 'Could not launch $url');
+                }
+              },
+              child: GFAvatar(
+                child: Image(
+                  image: AssetImage("assets/logos/email.png"),
+                ),
+              ),
+            ),GestureDetector(
               onTap: () async {
                 if (await canLaunch(urlY)) {
                   await launch(urlY);

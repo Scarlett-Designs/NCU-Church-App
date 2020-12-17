@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:church/main.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,12 @@ class _InitialPagesState extends State<InitialPages> {
 
   @override
   Widget build(BuildContext context) {
+
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ]);
+
     return SafeArea(
       child: GFIntroScreen(
         color: Colors.blueGrey,
@@ -156,7 +163,7 @@ class _InitialPagesState extends State<InitialPages> {
             child: Text(
                 'View Church Events',
                 textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
+                style: GoogleFonts.sniglet(
                   color: Colors.white,
                   fontSize: 40,
                   fontWeight: FontWeight.w400,
@@ -187,7 +194,7 @@ class _InitialPagesState extends State<InitialPages> {
               Text(
                 'View Current Christian News',
                 textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
+                style: GoogleFonts.sniglet(
                   color: Colors.white,
                   fontSize: 40,
                   fontWeight: FontWeight.w400,
@@ -218,7 +225,7 @@ class _InitialPagesState extends State<InitialPages> {
               Text(
                 'View Church Videos and Livestreams',
                 textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
+                style: GoogleFonts.sniglet(
                   color: Colors.white,
                   fontSize: 40,
                   fontWeight: FontWeight.w400,
@@ -246,7 +253,7 @@ class _InitialPagesState extends State<InitialPages> {
             child: Text(
               'Return Tithe & Offering',
               textAlign: TextAlign.center,
-              style: GoogleFonts.montserrat(
+              style: GoogleFonts.sniglet(
                 color: Colors.white,
                 fontSize: 40,
                 fontWeight: FontWeight.w400,

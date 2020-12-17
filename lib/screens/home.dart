@@ -4,7 +4,6 @@ import 'package:church/widgets/sizeconfig.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -17,11 +16,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   final List<String> imageList = [
-    "https://i.ytimg.com/vi/fBX9A7nTjY4/maxresdefault.jpg",
-    "https://farm8.staticflickr.com/7407/15753353124_a04f22427a.jpg",
-    "https://lh3.googleusercontent.com/proxy/BbNjA-0SbXvAg6UoCdKIA7oo-3aEC1i-74wucfrR4p4xLUGsDESO2eoD3gMGA_w7oJP1fSIt_Nnsqt6pJRt7kbqnbReRuXia6_KR-RSt36oo1W-r5418iaMVfH4lMzwSU9H3daLk0tIE-V9Uy_hlfOmWmoyl_RZ6uKid8ojXGxq8a5NL",
-    "https://i.ytimg.com/vi/queQ3lW6frU/maxresdefault.jpg",
-    "https://farm8.staticflickr.com/7457/13602551425_95c17ca812.jpg",
+    "assets/images/carousel1.jpg",
+    "assets/images/carousel2.jpg",
+    "assets/images/carousel3.jpg",
+    "assets/images/carousel4.jpg",
+    "assets/images/carousel5.jpg",
   ];
 
   @override
@@ -62,7 +61,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           margin: EdgeInsets.all(8.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                            child: Image.network(url,
+                            child: Image.asset(url,
                                 fit: BoxFit.fitHeight, width: screenWidth*.9),
                           ),
                         );

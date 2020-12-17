@@ -43,11 +43,13 @@ class _EventsTabsState extends State<EventsTabs> {
                     child: TextField(
                       onChanged: (value) {
                         setState(() {
-                          fEvents = this.widget.events.where((e) => e.summary.toLowerCase().contains(value.toLowerCase())).toList();
+                          fEvents = this.widget.events
+                              .where((e) => e.summary.toLowerCase().contains(value.toLowerCase())
+                              || e.start.toLowerCase().contains(value.toLowerCase())
+                              ||e.location.toLowerCase().contains(value.toLowerCase())).toList();
                         });
                       },
                       cursorColor: Colors.black,
-                      //controller: editingController,
                       style: TextStyle(color: Colors.black),
                       decoration: InputDecoration(
                         focusColor: Colors.black,
@@ -62,8 +64,9 @@ class _EventsTabsState extends State<EventsTabs> {
                     ),
                   ),
                 ),
+                SizedBox(height: 15,),
                 Container(
-                  height: screenHeight *0.555,
+                  height: screenHeight *0.55,
                   child: ListView.builder(
                       itemCount: this.fEvents.length,
                       itemBuilder: (BuildContext _, int index) {
@@ -81,7 +84,6 @@ class _EventsTabsState extends State<EventsTabs> {
 
                         return Card(
                           child: ListTile(
-                            //leading: Image.network('https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/072013/seventhdayadventistchurch.jpg?itok=34woqjwX'),
                             title: Text(event.summary ?? 'Not available'),
                             subtitle: Text('\nStatus: $status \nDate: $start'),
                             trailing: GFButton(
